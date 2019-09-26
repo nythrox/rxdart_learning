@@ -1,15 +1,14 @@
 import 'package:rxdart/rxdart.dart';
 
 main() {
-  //ConcatEagerStream turns a list of streams into a single stream
-  //it subscribes to all streams at once 
-  //events captured are emitted at the correct time, after the previous stream finished emitting items and closed.
-
+  //ConcatStream turns a list of streams into a single stream
+  //it subscribes to a stream, emits the events of that stream, then goes to the next if the stream closed.  
+  
   final behaviorSubject = BehaviorSubject<String>();
   final behaviorSubject2 = BehaviorSubject<String>();
   final behaviorSubject3 = BehaviorSubject<String>();
 
-  ConcatEagerStream([
+  ConcatStream([
     behaviorSubject,
     behaviorSubject2,
     behaviorSubject3,
